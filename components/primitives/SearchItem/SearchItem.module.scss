@@ -1,0 +1,38 @@
+.Content {
+  content-visibility: auto;
+  cursor: pointer;
+  height: 48px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 16px;
+  color: $gray11;
+  will-change: background, color;
+  transition: all 0.15s ease;
+  transition-property: none;
+
+  &:hover {
+    background: $grayA3;
+    color: $gray12;
+  }
+}
+
+.nameImage {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  .name {
+    text-transform: capitalize;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  display: block;
+  margin-bottom: 12px;
+}
