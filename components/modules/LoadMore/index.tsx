@@ -8,7 +8,7 @@ import Spinner from "../Spinner";
 
 export function LoadMore() {
   const [pokemon, setPokemon] = useState<any[]>([]);
-  const [offset, setOffset] = useState(18);
+  const [offset, setOffset] = useState(20);
 
   const { ref, inView } = useInView();
 
@@ -18,9 +18,9 @@ export function LoadMore() {
   const loadMorePokemon = async () => {
     await delay(1000);
     const page = offset;
-    const newPokemon = (await getAllPokemon(18, page)) ?? [];
+    const newPokemon = (await getAllPokemon(20, page)) ?? [];
     setPokemon((prevPokemon: any[]) => [...prevPokemon, ...newPokemon.results]);
-    setOffset(page + 18);
+    setOffset(page + 20);
 
     console.log("limit:", offset);
   };
