@@ -1,0 +1,20 @@
+@each $type, $color in $typeColors {
+  .#{$type} {
+    background-color: $color;
+  }
+}
+
+.type {
+  inline-size: min-content;
+  padding: 6px 10px;
+  border-radius: 8px;
+  color: $lowContrast;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.typesWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
