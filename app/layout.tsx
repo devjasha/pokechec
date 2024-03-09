@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { use } from "react";
 import { Inter } from "next/font/google";
-import "@/styles/_base.scss";
+import CommandK from "../components/modules/CommandK";
+import { getAllPokemon } from "../utils/getAllPokemon";
+import "@/styles/_main.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,8 +17,18 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const data = use(getAllPokemon(10000, 0));
+
+  const formattedPokemonData = Object.entries(data.results).map(
+    (entry: any) => ({
+      pokemon_name: entry[1].name,
+      pokemon_url: entry[1].url,
+    })
+  );
+
   return (
     <html lang="en">
+      <CommandK apiData={formattedPokemonData} />
       <body className={inter.className}>{children}</body>
     </html>
   );
