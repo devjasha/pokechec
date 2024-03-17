@@ -15,17 +15,12 @@ type PokemonResult = {
 
 const PokemonList: FC<PokemonListProps> = ({ pokemon }) => {
   return (
-    <div className={styles.grid}>
+    <section className={styles.grid}>
       {pokemon.map((pokemon: PokemonResult, index: number) => {
-        return (
-          <PokemonCard
-            key={index}
-            name={pokemon.name}
-            detailsUrl={pokemon.url}
-          />
-        );
+        const id: any = pokemon.url.split("/");
+        return <PokemonCard key={index} name={pokemon.name} id={id[6]} />;
       })}
-    </div>
+    </section>
   );
 };
 
