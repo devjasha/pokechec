@@ -1,24 +1,40 @@
 .pokemonCard {
   padding: 24px 32px;
   border-radius: 8px;
-  inline-size: auto;
+  inline-size: 200px;
+  min-inline-size: 200px;
   display: flex;
   background-color: #fafafa;
   border: 1px solid rgba($color: #000000, $alpha: 0.08);
   transition: 0.2s ease-in-out;
 
+  @include s {
+    inline-size: auto;
+  }
+
   &:hover {
     scale: 1.01;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
   }
 
   &:hover .sprite {
-    scale: 1.15;
+    scale: 1.04;
+    transform: translateY(-3px);
+  }
+
+  &:hover .typesWrapper {
+    transform: translateY(-3px);
+  }
+
+  &:hover .arrow {
+    transform: translateX(3px);
   }
 
   .link {
     text-decoration: none;
     color: black;
-    transition: 0.4s ease-in-out;
+    transition: 0.3s ease-in-out;
   }
 
   .sprite {
@@ -26,11 +42,31 @@
     block-size: 200px;
     align-self: center;
     transition: 0.3s ease-in-out;
-    transition-delay: 0.04s;
   }
 
   .information {
     align-self: flex-start;
     justify-self: flex-start;
+  }
+
+  .typesWrapper {
+    transition: 0.2s ease-in-out;
+  }
+
+  .name {
+    text-transform: capitalize;
+    font-size: 28px;
+    color: $gray12;
+    font-weight: 600;
+    letter-spacing: -2px;
+    line-height: 40px;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .arrow {
+    transition: 0.2s ease-in-out;
   }
 }
