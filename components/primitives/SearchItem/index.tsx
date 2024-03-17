@@ -7,13 +7,13 @@ import Link from "next/link";
 import Types from "../Types";
 
 type SearchItemProps = {
-  pokemonUrl: string;
+  id: number;
 };
 
-const SearchItem: FC<SearchItemProps> = ({ pokemonUrl }) => {
+const SearchItem: FC<SearchItemProps> = ({ id }) => {
   const [data, setData] = useState<any>();
   const getData = async () => {
-    const result = await getPokemonDetails(pokemonUrl);
+    const result = await getPokemonDetails(id);
     setData(result);
   };
 
@@ -22,7 +22,7 @@ const SearchItem: FC<SearchItemProps> = ({ pokemonUrl }) => {
   }, []);
 
   return (
-    <Link href={`${data?.name}`} className={styles.link}>
+    <Link href={`${data?.id}`} className={styles.link}>
       <div className={styles.Content}>
         <div className={styles.nameImage}>
           <img
