@@ -21,13 +21,10 @@ export function LoadMore() {
     const newPokemon = (await getAllPokemon(20, page)) ?? [];
     setPokemon((prevPokemon: any[]) => [...prevPokemon, ...newPokemon.results]);
     setOffset(page + 20);
-
-    console.log("limit:", offset);
   };
 
   useEffect(() => {
     if (inView) {
-      console.log("hello world");
       loadMorePokemon();
     }
   }, [inView]);
