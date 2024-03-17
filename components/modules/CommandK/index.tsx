@@ -51,9 +51,11 @@ const CommandK: FC<CommandKProps> = ({ apiData }) => {
         placeholder="Search for Pokemon..."
       />
       <Command.List title="Results" className={styles.list}>
-        {pokemonResult?.slice(0, 20).map((item: any) => (
-          <SearchItem pokemonUrl={item.pokemon_url} key={item.pokemon_name} />
-        ))}
+        {pokemonResult?.slice(0, 20).map((item: any) => {
+          const id: any = item.pokemon_url.split("/");
+
+          return <SearchItem id={id[6]} key={item.pokemon_name} />;
+        })}
       </Command.List>
     </Command.Dialog>
   );
