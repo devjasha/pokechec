@@ -1,7 +1,11 @@
 body {
   box-sizing: border-box;
-  padding-inline: 48px !important;
+  padding-inline: 12px !important;
   margin: 0;
+
+  @include s {
+    padding-inline: 48px !important;
+  }
 }
 
 * {
