@@ -5,7 +5,7 @@ import { use } from "react";
 import { getAllPokemon } from "../utils/getAllPokemon";
 
 const Home = () => {
-  const pokemon = use(getAllPokemon(20));
+  const pokemon = use(getAllPokemon(20, 0));
   return (
     <div className={styles.grid}>
       <PokemonList pokemon={pokemon.results} />
