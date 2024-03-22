@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { use } from "react";
-import { Inter } from "next/font/google";
+import { Space_Mono } from "next/font/google";
 import CommandK from "../components/modules/CommandK";
 import { getAllPokemon } from "../utils/getAllPokemon";
 import "@/styles/_main.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+const SpaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   title: "Pokechec",
@@ -29,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <CommandK apiData={formattedPokemonData} />
-      <body className={inter.className}>{children}</body>
+      <body className={SpaceMono.className}>{children}</body>
     </html>
   );
 }
